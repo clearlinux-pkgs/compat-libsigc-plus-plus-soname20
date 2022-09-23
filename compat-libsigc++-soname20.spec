@@ -4,7 +4,7 @@
 #
 Name     : compat-libsigc++-soname20
 Version  : 2.10.2
-Release  : 16
+Release  : 17
 URL      : https://download.gnome.org/sources/libsigc++/2.10/libsigc++-2.10.2.tar.xz
 Source0  : https://download.gnome.org/sources/libsigc++/2.10/libsigc++-2.10.2.tar.xz
 Summary  : Typesafe signal and callback system for C++
