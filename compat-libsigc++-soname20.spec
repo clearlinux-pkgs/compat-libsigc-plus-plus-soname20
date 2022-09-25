@@ -4,7 +4,7 @@
 #
 Name     : compat-libsigc++-soname20
 Version  : 2.10.2
-Release  : 17
+Release  : 18
 URL      : https://download.gnome.org/sources/libsigc++/2.10/libsigc++-2.10.2.tar.xz
 Source0  : https://download.gnome.org/sources/libsigc++/2.10/libsigc++-2.10.2.tar.xz
 Summary  : Typesafe signal and callback system for C++
@@ -78,15 +78,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1611160632
+export SOURCE_DATE_EPOCH=1664141911
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
 %configure --disable-static
 make  %{?_smp_mflags}
 
@@ -98,14 +98,14 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1611160632
+export SOURCE_DATE_EPOCH=1664141911
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/compat-libsigc++-soname20
-cp %{_builddir}/libsigc++-2.10.2/COPYING %{buildroot}/usr/share/package-licenses/compat-libsigc++-soname20/cf756914ec51f52f9c121be247bfda232dc6afd2
+cp %{_builddir}/libsigc++-%{version}/COPYING %{buildroot}/usr/share/package-licenses/compat-libsigc++-soname20/cf756914ec51f52f9c121be247bfda232dc6afd2 || :
 %make_install
 ## Remove excluded files
-rm -f %{buildroot}/usr/share/doc/libsigc++-2.0/reference/html/structsigc_1_1type__trait_3_01T__type[N]_4-members.html
-rm -f %{buildroot}/usr/share/doc/libsigc++-2.0/reference/html/structsigc_1_1type__trait_3_01T__type[N]_4.html
+rm -f %{buildroot}*/usr/share/doc/libsigc++-2.0/reference/html/structsigc_1_1type__trait_3_01T__type[N]_4-members.html
+rm -f %{buildroot}*/usr/share/doc/libsigc++-2.0/reference/html/structsigc_1_1type__trait_3_01T__type[N]_4.html
 ## install_append content
 rm %{buildroot}/usr/share/doc/libsigc++-2.0/reference/html/structsigc_1_1type__trait_3_01T__type*
 
